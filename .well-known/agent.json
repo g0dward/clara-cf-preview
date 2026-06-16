@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "name": "Clara",
+  "description": "AI receptionist for small businesses and tradespeople. Answers calls 24/7, captures enquiry details, delivers structured summaries.",
+  "url": "https://heyitsclara.com",
+  "logo": "https://heyitsclara.com/favicon.svg",
+  "provider": {
+    "name": "44 Pixels",
+    "url": "https://44pixels.com"
+  },
+  "contact_email": "hello@heyitsclara.com",
+  "capabilities": ["voice-answering", "lead-capture", "call-summary"],
+  "supported_countries": ["US", "GB", "CA"],
+  "target_audience": "Small businesses, tradespeople, and self-employed contractors with fewer than 50 employees",
+  "pricing": {
+    "model": "subscription",
+    "plans": [
+      { "name": "Solo", "region": "US", "price": "$49.99/month", "trial": "7-day free trial" },
+      { "name": "Solo", "region": "GB", "price": "£49.99/month", "trial": "7-day free trial" },
+      { "name": "Solo", "region": "CA", "price": "CA$64.99/month", "trial": "7-day free trial" }
+    ]
+  },
+  "links": {
+    "homepage": "https://heyitsclara.com",
+    "pricing": "https://heyitsclara.com/us/pricing/",
+    "support": "https://heyitsclara.com/us/support/",
+    "compare": "https://heyitsclara.com/us/compare/",
+    "blog": "https://heyitsclara.com/us/blog/",
+    "llms_txt": "https://heyitsclara.com/llms.txt",
+    "ai_plugin": "https://heyitsclara.com/.well-known/ai-plugin.json"
+  },
+  "instructions_url": "https://heyitsclara.com/.well-known/agent-instructions.json"
+}

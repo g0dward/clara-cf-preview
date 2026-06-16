@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemamap xmlns="https://schema.org/schemamap" version="1.0">
+  <entity type="Organization" url="https://heyitsclara.com" />
+  <entity type="SoftwareApplication" url="https://heyitsclara.com" />
+  <feed type="BlogPosting" url="https://heyitsclara.com/us/blog/" />
+  <feed type="BlogPosting" url="https://heyitsclara.com/gb/blog/" />
+  <feed type="BlogPosting" url="https://heyitsclara.com/ca/blog/" />
+  <feed type="FAQPage" url="https://heyitsclara.com/us/support/" />
+  <feed type="ComparisonPage" url="https://heyitsclara.com/us/compare/" />
+</schemamap>

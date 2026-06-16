@@ -1,0 +1,1 @@
+function r(t){return`clara_usage_${t}_${new Date().toISOString().slice(0,10)}`}function a(t){try{return parseInt(localStorage.getItem(r(t))??"0",10)||0}catch{return 0}}function c(t){try{const e=r(t),n=(parseInt(localStorage.getItem(e)??"0",10)||0)+1;return localStorage.setItem(e,String(n)),n}catch{return 1}}const o=3;export{o as D,a as g,c as i};

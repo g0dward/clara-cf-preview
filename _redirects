@@ -1,0 +1,51 @@
+# Geo-aware redirects for /terms, /pricing, /blog etc. are handled by
+# src/middleware.ts (runs inside the Cloudflare Worker, has CF-IPCountry).
+#
+# IMPORTANT: wildcard rules here (e.g. /blog/* ...) also get added to the
+# _routes.json exclude list by the Cloudflare adapter, which causes those paths
+# to bypass the Worker so the wildcard redirect never fires. Only put exact
+# matches here. Multi-segment redirects are handled in middleware.
+
+/londonbuild    /gb/            301
+/londonbuild/   /gb/            301
+
+# Blog article renames — voicemail-greeting-examples is locale-suffixed now
+/us/blog/voicemail-greeting-examples    /us/blog/voicemail-greeting-examples-us 301
+/us/blog/voicemail-greeting-examples/   /us/blog/voicemail-greeting-examples-us/ 301
+/gb/blog/voicemail-greeting-examples    /gb/blog/voicemail-greeting-examples-gb 301
+/gb/blog/voicemail-greeting-examples/   /gb/blog/voicemail-greeting-examples-gb/ 301
+/ca/blog/voicemail-greeting-examples    /ca/blog/voicemail-greeting-examples-ca 301
+/ca/blog/voicemail-greeting-examples/   /ca/blog/voicemail-greeting-examples-ca/ 301
+
+# Deleted post (how-to-set-up-your-clara-greeting) — redirect to closest topic
+/us/blog/how-to-set-up-your-clara-greeting    /us/blog/voicemail-greeting-examples-us 301
+/us/blog/how-to-set-up-your-clara-greeting/   /us/blog/voicemail-greeting-examples-us/ 301
+/gb/blog/how-to-set-up-your-clara-greeting    /gb/blog/voicemail-greeting-examples-gb 301
+/gb/blog/how-to-set-up-your-clara-greeting/   /gb/blog/voicemail-greeting-examples-gb/ 301
+/ca/blog/how-to-set-up-your-clara-greeting    /ca/blog/voicemail-greeting-examples-ca 301
+/ca/blog/how-to-set-up-your-clara-greeting/   /ca/blog/voicemail-greeting-examples-ca/ 301
+
+# Cross-locale slug mismatches for the "best AI phone answering" comparison
+# Google remembered URLs with wrong locale slugs — redirect each to the right
+# locale-canonical version of the same article.
+/us/blog/best-ai-phone-answering-service-uk-tradespeople    /us/blog/best-ai-phone-answering-service-us-contractors 301
+/us/blog/best-ai-phone-answering-service-uk-tradespeople/   /us/blog/best-ai-phone-answering-service-us-contractors/ 301
+/us/blog/best-ai-phone-answering-service-ca-contractors     /us/blog/best-ai-phone-answering-service-us-contractors 301
+/us/blog/best-ai-phone-answering-service-ca-contractors/    /us/blog/best-ai-phone-answering-service-us-contractors/ 301
+/gb/blog/best-ai-phone-answering-service-us-contractors     /gb/blog/best-ai-phone-answering-service-uk-tradespeople 301
+/gb/blog/best-ai-phone-answering-service-us-contractors/    /gb/blog/best-ai-phone-answering-service-uk-tradespeople/ 301
+/gb/blog/best-ai-phone-answering-service-ca-contractors     /gb/blog/best-ai-phone-answering-service-uk-tradespeople 301
+/gb/blog/best-ai-phone-answering-service-ca-contractors/    /gb/blog/best-ai-phone-answering-service-uk-tradespeople/ 301
+/ca/blog/best-ai-phone-answering-service-us-contractors     /ca/blog/best-ai-phone-answering-service-ca-contractors 301
+/ca/blog/best-ai-phone-answering-service-us-contractors/    /ca/blog/best-ai-phone-answering-service-ca-contractors/ 301
+/ca/blog/best-ai-phone-answering-service-uk-tradespeople    /ca/blog/best-ai-phone-answering-service-ca-contractors 301
+/ca/blog/best-ai-phone-answering-service-uk-tradespeople/   /ca/blog/best-ai-phone-answering-service-ca-contractors/ 301
+
+# Exact bare-path redirects — these work because Cloudflare checks _redirects
+# for directories even when excluded from the Worker.
+/blog                                   /us/blog                                301
+/industries                             /us/industries                          301
+/support                                /us/support                             301
+/case-studies                           /us/case-studies                        301
+/tools                                  /us/tools                               301
+/start                                  /us/start                               301
